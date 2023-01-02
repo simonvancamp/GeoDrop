@@ -17,13 +17,15 @@ enum TraceType { post, sent }
 
 abstract class Trace {
   late final DateTime _droptime;
+  late final String _creatorID;
   late final LatLng _location;
   late Duration _allowedAge = const Duration(days: 10000);
   static const Distance distance = Distance();
 
-  Trace(double lat, double long) {
+  Trace(double lat, double long, String userID) {
     _location = LatLng(lat, long);
     _droptime = DateTime.now();
+    _creatorID = userID;
   }
 
   LatLng get location => _location;
